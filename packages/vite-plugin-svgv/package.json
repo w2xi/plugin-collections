@@ -1,0 +1,49 @@
+{
+  "name": "vite-plugin-svgv",
+  "version": "0.0.1",
+  "description": "A vite plugin use to load SVG files as Vue components",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "homepage": "https://github.com/w2xi/vite-plugins/tree/main/packages/vite-plugin-svgv#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/w2xi/vite-plugins.git",
+    "directory": "packages/vite-plugin-svgv"
+  },
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "scripts": {
+    "prepublishOnly": "nr build",
+    "dev": "nr build --watch",
+    "build": "tsup bin --dts --format cjs,esm",
+    "release": "bumpp --commit --push --tag && pnpm publish",
+    "type": "tsc --noEmit"
+  },
+  "keywords": [
+    "vite-plugin"
+  ],
+  "author": "w2xi",
+  "license": "MIT",
+  "files": [
+    "dist"
+  ],
+  "devDependencies": {
+    "@types/node": "^20.11.30",
+    "bumpp": "^9.8.0",
+    "tsup": "^8.3.5",
+    "typescript": "^5.4.3",
+    "vite": "^5.4.10",
+    "vite-plugin-inspect": "^0.8.7"
+  }
+}
