@@ -22,7 +22,6 @@ export default function vitePluginSvgLoader(options: Options = {}): Plugin {
         return
       }
       const [filename, query] = id.split('?', 2)
-      console.log('load hook', filename, query)
 
       let svg = ''
       try {
@@ -45,14 +44,8 @@ export default function vitePluginSvgLoader(options: Options = {}): Plugin {
           source: svg,
           transformAssetUrls: false,
         })
-        fs.writeFileSync(filename + '.js', `${code}\nexport default { render }`)
-
         return `${code}\nexport default { render }`
       }
-    },
-    configResolved(config) {
-      console.log('configResolved hook')
-      fs.writeFileSync('vite-config.json', JSON.stringify(config, null, 2))
     },
   }
 }
