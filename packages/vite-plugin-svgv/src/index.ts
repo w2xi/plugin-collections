@@ -12,16 +12,16 @@ export default function vitePluginSvgLoader(options: Options = {}): Plugin {
     // https://vite.dev/guide/api-plugin.html#plugin-ordering
     enforce: 'pre',
     load(id) {
-      // id
-      // xxx.svg
-      // xxx.svg?vue (vue component)
-      // xxx.svg?url (apply default behavior by vite:asset)
-      // xxx.svg?raw (raw string)
+      // *.svg?vue (vue component)
+      // *.svg or *.svg?url (apply default behavior by vite:asset)
+      // *.svg?raw (raw string)
 
       if (!/\.svg(\?(raw|vue|url))?$/.test(id)) {
         return
       }
       const [filename, query] = id.split('?', 2)
+      // apply default behavior by vite:asset
+      if (query === 'url') return
 
       let svg = ''
       try {
@@ -32,12 +32,9 @@ export default function vitePluginSvgLoader(options: Options = {}): Plugin {
         )
         return
       }
-      // apply default behavior by vite:asset
-      if (query === 'url') return
       if (query === 'raw') {
         return `export default ${JSON.stringify(svg)}`
-      }
-      if (query === 'vue') {
+      } else if (query === 'vue') {
         const { code } = compileTemplate({
           id,
           filename,
