@@ -26,7 +26,7 @@
   "scripts": {
     "prepublishOnly": "nr build",
     "dev": "nr build --watch",
-    "build": "tsup bin --dts --format cjs,esm",
+    "build": "tsup src --dts --format cjs,esm",
     "release": "bumpp --commit --push --tag && pnpm publish",
     "type": "tsc --noEmit"
   },
@@ -39,11 +39,10 @@
     "dist"
   ],
   "devDependencies": {
-    "@types/node": "^20.11.30",
     "bumpp": "^9.8.0",
-    "tsup": "^8.3.5",
-    "typescript": "^5.4.3",
-    "vite": "^5.4.10",
-    "vite-plugin-inspect": "^0.8.7"
+    "tsup": "^8.3.5"
+  },
+  "peerDependencies": {
+    "vue": "^3.2.13"
   }
 }

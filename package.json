@@ -1,36 +1,18 @@
 {
   "name": "vite-plugins",
-  "version": "0.0.1",
-  "description": "Plugin collections for vite",
   "private": true,
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org/"
-  },
   "homepage": "https://github.com/w2xi/vite-plugins#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/w2xi/vite-plugins.git"
   },
-  "main": "dist/index.cjs",
-  "module": "dist/index.js",
-  "types": "dist/index.d.ts",
   "type": "module",
-  "sideEffects": false,
-  "exports": {
-    ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
-    }
-  },
   "scripts": {
     "type": "tsc --noEmit"
   },
   "keywords": [
     "vite-plugin"
   ],
-  "author": "w2xi",
-  "license": "MIT",
   "devDependencies": {
     "@types/node": "^20.11.30",
     "typescript": "^5.4.3",
