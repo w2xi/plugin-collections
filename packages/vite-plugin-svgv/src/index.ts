@@ -20,7 +20,7 @@ export default function vitePluginSvgLoader(options: Options = {}): Plugin {
         return
       }
       const [filename, query] = id.split('?', 2)
-      // apply default behavior by vite:asset
+
       if (query === 'url') return
 
       let svg = ''
@@ -28,7 +28,7 @@ export default function vitePluginSvgLoader(options: Options = {}): Plugin {
         svg = fs.readFileSync(filename, 'utf-8')
       } catch (e) {
         console.log(
-          `${id} couldn't be loaded by vite-svg-loader, fallback to default loader`
+          `${id} couldn't be loaded by vite-plugin-svgv, fallback to default loader`
         )
         return
       }
