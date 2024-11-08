@@ -6,17 +6,17 @@ interface Options {}
 
 export default function vitePluginSvgLoader(options: Options = {}): Plugin {
   return {
-    name: 'vite-plugin-svg-loader',
+    name: 'vite-plugin-svgv',
     // to override `vite:asset` plugin's behavior
     // by simply adjusting the order of the plugin before vite:asset
     // https://vite.dev/guide/api-plugin.html#plugin-ordering
     enforce: 'pre',
     load(id) {
-      // *.svg?vue (vue component)
+      // *.svg?component (vue component)
       // *.svg or *.svg?url (apply default behavior by vite:asset)
       // *.svg?raw (raw string)
 
-      if (!/\.svg(\?(raw|vue|url))?$/.test(id)) {
+      if (!/\.svg(\?(raw|component|url))?$/.test(id)) {
         return
       }
       const [filename, query] = id.split('?', 2)
@@ -34,12 +34,11 @@ export default function vitePluginSvgLoader(options: Options = {}): Plugin {
       }
       if (query === 'raw') {
         return `export default ${JSON.stringify(svg)}`
-      } else if (query === 'vue') {
+      } else if (query === 'component') {
         const { code } = compileTemplate({
           id,
           filename,
           source: svg,
-          transformAssetUrls: false,
         })
         return `${code}\nexport default { render }`
       }

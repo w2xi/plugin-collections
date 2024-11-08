@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import vueLogo from './assets/logo.svg'
-import vueLogoComponent from './assets/logo.svg?vue'
+import vueLogoComponent from './assets/logo.svg?component'
 import vueLogoRaw from './assets/logo.svg?raw'
 import vueLogoUrl from './assets/logo.svg?url'
 </script>
