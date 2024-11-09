@@ -1,5 +1,6 @@
 {
   "name": "vite-plugins",
+  "version": "0.0.2",
   "private": true,
   "homepage": "https://github.com/w2xi/vite-plugins#readme",
   "repository": {
