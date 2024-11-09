@@ -8,7 +8,7 @@
   },
   "type": "module",
   "scripts": {
-    "build": "pnpm -r --filter='./packages/*' run build",
+    "build": "pnpm -r --filter \"./packages/**\" build",
     "release": "pnpm build && bumpp -r --commit --push --tag && pnpm publish"
   },
   "keywords": [
