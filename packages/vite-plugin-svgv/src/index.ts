@@ -1,10 +1,19 @@
 import { compileTemplate } from 'vue/compiler-sfc'
 import fs from 'node:fs'
+import { optimize } from 'svgo'
 import type { Plugin } from 'vite'
+import type { Config } from 'svgo'
 
-interface Options {}
+interface Options {
+  defaultImport?: 'raw' | 'url' | 'component'
+  svgo?: boolean
+  svgoConfig?: Config
+}
 
 export default function vitePluginSvgLoader(options: Options = {}): Plugin {
+  const { defaultImport = 'url', svgo = true, svgoConfig } = options
+  const svgRegex = /\.svg(\?(raw|component|url))?$/
+
   return {
     name: 'vite-plugin-svgv',
     // to override `vite:asset` plugin's behavior
@@ -16,12 +25,13 @@ export default function vitePluginSvgLoader(options: Options = {}): Plugin {
       // *.svg or *.svg?url (apply default behavior by vite:asset)
       // *.svg?raw (raw string)
 
-      if (!/\.svg(\?(raw|component|url))?$/.test(id)) {
+      if (!svgRegex.test(id)) {
         return
       }
       const [filename, query] = id.split('?', 2)
+      const importType = query || defaultImport
 
-      if (query === 'url') return
+      if (importType === 'url') return
 
       let svg = ''
       try {
@@ -32,9 +42,17 @@ export default function vitePluginSvgLoader(options: Options = {}): Plugin {
         )
         return
       }
-      if (query === 'raw') {
+
+      if (svgo) {
+        svg = optimize(svg, {
+          ...svgoConfig,
+          path: filename,
+        }).data
+      }
+
+      if (importType === 'raw') {
         return `export default ${JSON.stringify(svg)}`
-      } else if (query === 'component') {
+      } else if (importType === 'component') {
         const { code } = compileTemplate({
           id,
           filename,
