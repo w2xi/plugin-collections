@@ -39,7 +39,8 @@
   "author": "w2xi",
   "license": "MIT",
   "files": [
-    "dist"
+    "dist",
+    "client.d.ts"
   ],
   "peerDependencies": {
     "vue": "^3.2.13"
