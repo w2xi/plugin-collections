@@ -30,8 +30,7 @@
   "scripts": {
     "prepublishOnly": "nr build",
     "dev": "nr build --watch",
-    "build": "tsup src --dts --format cjs,esm",
-    "type": "tsc --noEmit"
+    "build": "tsup src --dts --format cjs,esm"
   },
   "keywords": [
     "vite-plugin"
