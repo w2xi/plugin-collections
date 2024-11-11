@@ -8,8 +8,9 @@
   },
   "type": "module",
   "scripts": {
+    "prepublishOnly": "pnpm build",
     "build": "pnpm -r --filter \"./packages/**\" build",
-    "release": "pnpm build && changeset"
+    "release": "changeset && changeset version && changeset publish --registry=https://registry.npmjs.com/"
   },
   "keywords": [
     "vite-plugin"
