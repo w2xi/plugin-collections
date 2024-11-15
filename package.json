@@ -9,15 +9,16 @@
   },
   "type": "module",
   "scripts": {
+    "prepublishOnly": "pnpm build",
     "build": "pnpm -r --filter \"./packages/**\" build",
-    "release": "pnpm build && bumpp -r --commit --push --tag && pnpm publish"
+    "release": "changeset && changeset version && changeset publish --registry=https://registry.npmjs.com/"
   },
   "keywords": [
     "vite-plugin"
   ],
   "devDependencies": {
+    "@changesets/cli": "^2.27.9",
     "@types/node": "^20.11.30",
-    "bumpp": "^9.8.1",
     "tsup": "^8.3.5",
     "typescript": "^5.4.3",
     "vite": "^5.4.10",

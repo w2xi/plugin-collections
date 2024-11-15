@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-svgv",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "A vite plugin use to load SVG files as Vue components",
   "publishConfig": {
     "access": "public",
@@ -30,8 +30,7 @@
   "scripts": {
     "prepublishOnly": "nr build",
     "dev": "nr build --watch",
-    "build": "tsup src --dts --format cjs,esm",
-    "type": "tsc --noEmit"
+    "build": "tsup src --dts --format cjs,esm"
   },
   "keywords": [
     "vite-plugin"
@@ -39,7 +38,8 @@
   "author": "w2xi",
   "license": "MIT",
   "files": [
-    "dist"
+    "dist",
+    "client.d.ts"
   ],
   "peerDependencies": {
     "vue": "^3.2.13"
