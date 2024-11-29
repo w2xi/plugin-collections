@@ -1,0 +1,47 @@
+{
+  "name": "vite-plugin-px2rem",
+  "version": "0.0.4",
+  "description": "A vite plugin use to transform px of inline style to rem",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "homepage": "https://github.com/w2xi/vite-plugins/tree/main/packages/vite-plugin-px2rem#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/w2xi/vite-plugins.git",
+    "directory": "packages/vite-plugin-px2rem"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./client": {
+      "types": "./client.d.ts"
+    }
+  },
+  "scripts": {
+    "prepublishOnly": "nr build",
+    "dev": "nr build --watch",
+    "build": "tsup src --dts --format cjs,esm"
+  },
+  "keywords": [
+    "vite-plugin"
+  ],
+  "author": "w2xi",
+  "license": "MIT",
+  "files": [
+    "dist",
+    "client.d.ts"
+  ],
+  "peerDependencies": {
+    "vue": "^3.2.13"
+  }
+}
