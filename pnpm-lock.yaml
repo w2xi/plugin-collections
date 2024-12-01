@@ -54,9 +54,6 @@ importers:
       '@vitejs/plugin-vue':
         specifier: ^5.1.5
         version: 5.2.1(vite@5.4.11)(vue@3.5.13)
-      '@vue/compiler-core':
-        specifier: ^3.5.13
-        version: 3.5.13
 
   playground/plugin-svgv:
     dependencies:
