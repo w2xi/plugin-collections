@@ -43,5 +43,8 @@
   ],
   "peerDependencies": {
     "vue": "^3.2.13"
+  },
+  "dependencies": {
+    "magic-string": "^0.30.14"
   }
 }

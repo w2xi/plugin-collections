@@ -29,6 +29,9 @@ importers:
 
   packages/plugin-px2rem:
     dependencies:
+      magic-string:
+        specifier: ^0.30.14
+        version: 0.30.14
       vue:
         specifier: ^3.2.13
         version: 3.5.12(typescript@5.4.3)
@@ -44,9 +47,6 @@ importers:
 
   playground/plugin-px2rem:
     dependencies:
-      magic-string:
-        specifier: ^0.30.14
-        version: 0.30.14
       vue:
         specifier: ^3.5.12
         version: 3.5.13(typescript@5.4.3)
@@ -1210,7 +1210,7 @@ packages:
       '@vue/compiler-ssr': 3.5.12
       '@vue/shared': 3.5.12
       estree-walker: 2.0.2
-      magic-string: 0.30.12
+      magic-string: 0.30.14
       postcss: 8.4.49
       source-map-js: 1.2.1
 
@@ -1945,11 +1945,6 @@ packages:
       pseudomap: 1.0.2
       yallist: 2.1.2
     dev: true
-
-  /magic-string@0.30.12:
-    resolution: {integrity: sha512-Ea8I3sQMVXr8JhN4z+H/d8zwo+tYDgHE9+5G4Wnrwhs0gaK9fXTKx0Tw5Xwsd/bCPTTZNRAdpyzvoeORe9LYpw==}
-    dependencies:
-      '@jridgewell/sourcemap-codec': 1.5.0
 
   /magic-string@0.30.14:
     resolution: {integrity: sha512-5c99P1WKTed11ZC0HMJOj6CDIue6F8ySu+bJL+85q1zBEIY8IklrJ1eiKC2NDRh3Ct3FcvmJPyQHb9erXMTJNw==}
