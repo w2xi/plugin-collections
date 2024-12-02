@@ -51,9 +51,15 @@ importers:
         specifier: ^3.5.12
         version: 3.5.13(typescript@5.4.3)
     devDependencies:
+      '@types/postcss-pxtorem':
+        specifier: ^6.1.0
+        version: 6.1.0
       '@vitejs/plugin-vue':
         specifier: ^5.1.5
         version: 5.2.1(vite@5.4.11)(vue@3.5.13)
+      postcss-pxtorem:
+        specifier: ^6.1.0
+        version: 6.1.0(postcss@8.4.49)
 
   playground/plugin-svgv:
     dependencies:
@@ -1137,6 +1143,12 @@ packages:
       undici-types: 5.26.5
     dev: true
 
+  /@types/postcss-pxtorem@6.1.0:
+    resolution: {integrity: sha512-kHsYTjQgllOfhi3J+xunjMKUZ3APARV/JYeOOcIVLhvPVS162S8Ir8LsZwioFFyYCSnQp+aisupiSaRWVwKyDA==}
+    dependencies:
+      postcss: 8.4.49
+    dev: true
+
   /@vitejs/plugin-vue@5.1.5(vite@5.4.11)(vue@3.5.12):
     resolution: {integrity: sha512-dlnib73G05CDBAUR/YpuZcQQ47fpjihnnNouAAqN62z+oqSsWJ+kh52GRzIxpkgFG3q11eXK7Di7RMmoCwISZA==}
     engines: {node: ^18.0.0 || >=20.0.0}
@@ -2142,6 +2154,14 @@ packages:
         optional: true
     dependencies:
       lilconfig: 3.1.2
+    dev: true
+
+  /postcss-pxtorem@6.1.0(postcss@8.4.49):
+    resolution: {integrity: sha512-ROODSNci9ADal3zUcPHOF/K83TiCgNSPXQFSbwyPHNV8ioHIE4SaC+FPOufd8jsr5jV2uIz29v1Uqy1c4ov42g==}
+    peerDependencies:
+      postcss: ^8.0.0
+    dependencies:
+      postcss: 8.4.49
     dev: true
 
   /postcss@8.4.47:
