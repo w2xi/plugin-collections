@@ -12,5 +12,5 @@ export default {
 </script>
 
 <template>
-  <div class="test">Test</div>
+  <div>component non-script-setup</div>
 </template>
