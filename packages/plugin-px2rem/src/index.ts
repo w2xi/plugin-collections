@@ -2,7 +2,11 @@ import type { PluginOption } from 'vite'
 import { parse, compileTemplate, compileScript } from 'vue/compiler-sfc'
 import MagicString from 'magic-string'
 import { helperCode, EXPORT_HELPER_ID } from './helper'
-import { NodeTypes, TemplateChildNode } from '@vue/compiler-core'
+import {
+  NodeTypes,
+  TemplateChildNode,
+  SimpleExpressionNode,
+} from '@vue/compiler-core'
 
 let ms: MagicString
 
@@ -60,8 +64,9 @@ function walk(node?: TemplateChildNode[]) {
     if (child.type === 1) {
       // element node
       const props = child.props
-      props.forEach((prop: any) => {
+      props.forEach((prop) => {
         if (prop.type === NodeTypes.DIRECTIVE) {
+          if (!prop.exp) return
           const loc = prop.exp.loc
           const startOffset = loc.start.offset
           const endOffset = loc.end.offset
@@ -71,7 +76,7 @@ function walk(node?: TemplateChildNode[]) {
             ms.update(startOffset, endOffset, `__px2rem__helper(${loc.source})`)
           } else {
             // static style
-            if (prop.arg.content === 'style') {
+            if ((prop.arg as SimpleExpressionNode)?.content === 'style') {
               const content = loc.source.replace(
                 /(\d+)px/g,
                 (_: string, p1: number) => p1 / 16 + 'rem'
