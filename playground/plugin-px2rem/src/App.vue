@@ -26,4 +26,14 @@ const styles = computed(() => {
   <div class="case4" :style="styles">case4</div>
 
   <Test style="color: blue; font-size: 30px" />
+
+  <div class="box">box</div>
 </template>
+
+<style scoped>
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+}
+</style>
