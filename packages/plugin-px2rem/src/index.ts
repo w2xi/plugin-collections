@@ -1,7 +1,7 @@
-import type { PluginOption } from 'vite'
-import { parse, compileTemplate, compileScript } from 'vue/compiler-sfc'
+import type { Plugin } from 'vite'
+import { parse, compileTemplate } from 'vue/compiler-sfc'
 import MagicString from 'magic-string'
-import { helperCode, EXPORT_HELPER_ID } from './helper'
+import { helperCode } from './helper'
 import {
   NodeTypes,
   TemplateChildNode,
@@ -11,24 +11,17 @@ import {
 let ms: MagicString
 
 type Options = {
-  remUnit: number
+  remUnit?: number
 }
 
-export default function px2rem(options = {}): PluginOption {
+export default function px2rem(
+  options: Options = {
+    remUnit: 16,
+  }
+): Plugin {
   return {
     name: 'vite-plugin-px2rem',
     enforce: 'pre',
-    resolveId(id) {
-      if (id === EXPORT_HELPER_ID) {
-        return id
-      }
-    },
-    async load(id) {
-      if (id === EXPORT_HELPER_ID) {
-        console.log('id', id, helperCode)
-        return helperCode
-      }
-    },
     transform(code, id) {
       if (id.endsWith('.vue')) {
         const { ast } = compileTemplate({
@@ -45,7 +38,7 @@ export default function px2rem(options = {}): PluginOption {
         ms = new MagicString(code)
         ms.update(loc.start.offset, loc.end.offset, content)
 
-        walk(ast?.children)
+        walk(ast?.children || [], options)
 
         return {
           code: ms.toString(),
@@ -58,7 +51,12 @@ export default function px2rem(options = {}): PluginOption {
   }
 }
 
-function walk(node?: TemplateChildNode[]) {
+function walk(
+  node: TemplateChildNode[],
+  options: Options = {
+    remUnit: 16,
+  }
+) {
   if (!node) return
   node.forEach((child) => {
     if (child.type === 1) {
@@ -73,20 +71,26 @@ function walk(node?: TemplateChildNode[]) {
 
           if ([':style', 'v-bind:style'].includes(prop.rawName || '')) {
             // dynamic style
-            ms.update(startOffset, endOffset, `__px2rem__helper(${loc.source})`)
+            ms.update(
+              startOffset,
+              endOffset,
+              `__px2rem__helper(${loc.source}, { ${Object.entries(options)
+                .map(([key, value]) => `${key}: ${value}`)
+                .join(', ')} })`
+            )
           } else {
             // static style
             if ((prop.arg as SimpleExpressionNode)?.content === 'style') {
               const content = loc.source.replace(
                 /(\d+)px/g,
-                (_: string, p1: number) => p1 / 16 + 'rem'
+                (_: string, p1: number) => p1 / options.remUnit! + 'rem'
               )
               ms.update(startOffset, endOffset, content)
             }
           }
         }
       })
-      walk(child.children)
+      walk(child.children, options)
     }
   })
 }
