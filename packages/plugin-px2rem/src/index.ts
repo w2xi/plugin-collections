@@ -34,9 +34,9 @@ export default function px2rem(options = {}): PluginOption {
         })
 
         const { descriptor } = parse(code)
-        const scriptSetup = descriptor.scriptSetup
-        const loc = scriptSetup?.loc!
-        let content = `${helperCode}` + scriptSetup!.content
+        const script = descriptor.scriptSetup || descriptor.script
+        const loc = script?.loc!
+        let content = `${helperCode}` + script!.content
 
         ms = new MagicString(code)
         ms.update(loc.start.offset, loc.end.offset, content)
