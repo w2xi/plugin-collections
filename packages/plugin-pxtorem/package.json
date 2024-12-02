@@ -1,16 +1,16 @@
 {
-  "name": "vite-plugin-px2rem",
+  "name": "vite-plugin-pxtorem",
   "version": "0.0.4",
   "description": "A vite plugin use to transform px of inline style to rem",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
-  "homepage": "https://github.com/w2xi/vite-plugins/tree/main/packages/vite-plugin-px2rem#readme",
+  "homepage": "https://github.com/w2xi/vite-plugins/tree/main/packages/vite-plugin-pxtorem#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/w2xi/vite-plugins.git",
-    "directory": "packages/vite-plugin-px2rem"
+    "directory": "packages/vite-plugin-pxtorem"
   },
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
