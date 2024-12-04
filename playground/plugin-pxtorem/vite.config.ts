@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import Inspect from 'vite-plugin-inspect'
-import px2rem from '../../packages/plugin-px2rem/src'
+import px2rem from '../../packages/plugin-pxtorem/src'
 import PostCssPx2Rem from 'postcss-pxtorem'
 
 export default defineConfig({
