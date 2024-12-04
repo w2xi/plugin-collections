@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-pxtorem",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A vite plugin use to transform px of inline style to rem",
   "publishConfig": {
     "access": "public",
