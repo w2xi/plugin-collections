@@ -1,7 +1,7 @@
 import type { Plugin } from 'vite'
 import { parse, compileTemplate } from 'vue/compiler-sfc'
 import MagicString from 'magic-string'
-import { helperCode } from './helper'
+import { helperName, helperCode } from './helper'
 import {
   NodeTypes,
   TemplateChildNode,
@@ -10,7 +10,7 @@ import {
 
 let ms: MagicString
 
-type Options = {
+export type Options = {
   remUnit?: number
 }
 
@@ -74,7 +74,7 @@ function walk(
             ms.update(
               startOffset,
               endOffset,
-              `__px2rem__helper(${loc.source}, { ${Object.entries(options)
+              `${helperName}(${loc.source}, { ${Object.entries(options)
                 .map(([key, value]) => `${key}: ${value}`)
                 .join(', ')} })`
             )

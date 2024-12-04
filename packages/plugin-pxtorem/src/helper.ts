@@ -1,5 +1,7 @@
+export const helperName = '__pxtorem__helper'
+
 export const helperCode = `
-const __px2rem__helper = (val, options = {}) => {
+const ${helperName} = (val, options = {}) => {
   const px2rem = px => px.replace(/(\\d+)px/g, (_, p1) => p1 / options.remUnit + 'rem')
   if (val && typeof val === 'object') {
     const ret = {}
