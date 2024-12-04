@@ -6,10 +6,10 @@
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
-  "homepage": "https://github.com/w2xi/vite-plugins/tree/main/packages/vite-plugin-pxtorem#readme",
+  "homepage": "https://github.com/w2xi/vite-plugin-collections/tree/main/packages/vite-plugin-pxtorem#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/w2xi/vite-plugins.git",
+    "url": "git+https://github.com/w2xi/vite-plugin-collections.git",
     "directory": "packages/vite-plugin-pxtorem"
   },
   "main": "./dist/index.cjs",
@@ -38,8 +38,7 @@
   "author": "w2xi",
   "license": "MIT",
   "files": [
-    "dist",
-    "client.d.ts"
+    "dist"
   ],
   "peerDependencies": {
     "vue": "^3.2.13"
