@@ -77,14 +77,14 @@ export type Options = {
 
 ```html
 <script lang="ts" setup>
-  import { computed } from 'vue'
+import { computed } from 'vue'
 
-  const styles = computed(() => {
-    return {
-      width: '100px',
-      height: '100px',
-    }
-  })
+const styles = computed(() => {
+  return {
+    width: '100px',
+    height: '100px',
+  }
+})
 </script>
 <template>
   <div :style="styles"></div>
@@ -95,19 +95,19 @@ export type Options = {
 
 ```html
 <script lang="ts">
-  import { computed } from 'vue'
+import { computed } from 'vue'
 
-  export default {
-    setup() {
-      const styles = computed(() => {
-        return {
-          width: '100px',
-          height: '100px',
-        }
-      })
-      return { styles }
-    },
-  }
+export default {
+  setup() {
+    const styles = computed(() => {
+      return {
+        width: '100px',
+        height: '100px',
+      }
+    })
+    return { styles }
+  },
+}
 </script>
 <template>
   <div :style="styles"></div>
