@@ -6,10 +6,10 @@
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
-  "homepage": "https://github.com/w2xi/vite-plugins/tree/main/packages/vite-plugin-svgv#readme",
+  "homepage": "https://github.com/w2xi/vite-plugin-collections/tree/main/packages/vite-plugin-svgv#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/w2xi/vite-plugins.git",
+    "url": "git+https://github.com/w2xi/vite-plugin-collections.git",
     "directory": "packages/vite-plugin-svgv"
   },
   "main": "./dist/index.cjs",
