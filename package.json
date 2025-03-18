@@ -13,9 +13,6 @@
     "build": "pnpm -r --filter \"./packages/**\" build",
     "release": "changeset && changeset version && changeset publish --registry=https://registry.npmjs.com/"
   },
-  "keywords": [
-    "vite-plugin"
-  ],
   "devDependencies": {
     "@changesets/cli": "^2.27.9",
     "@types/node": "^20.11.30",
