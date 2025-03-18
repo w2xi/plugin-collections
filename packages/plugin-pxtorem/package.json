@@ -6,11 +6,11 @@
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
-  "homepage": "https://github.com/w2xi/vite-plugin-collections/tree/main/packages/vite-plugin-pxtorem#readme",
+  "homepage": "https://github.com/w2xi/plugin-collections/tree/main/packages/plugin-pxtorem#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/w2xi/vite-plugin-collections.git",
-    "directory": "packages/vite-plugin-pxtorem"
+    "url": "git+https://github.com/w2xi/plugin-collections.git",
+    "directory": "packages/plugin-pxtorem"
   },
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
