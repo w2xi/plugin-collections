@@ -1,6 +1,6 @@
 # vite-plugin-pxtorem
 
-A vite plugin that allows you to convert inline style `px` into `rem` in `vue template`, both support static and dynamic style.
+A vite plugin that allows you to convert inline style `px` into `rem` in vue template, both support static and dynamic style.
 
 > For dynamic styles, the runtime code of helper function `__pxtorem__helper` will be injected into the compiled code by 'vite-plugin-pxtorem' under th hood.This allows us to convert dynamic style with `px` units into `rem` units.
 
@@ -12,7 +12,7 @@ pnpm add vite-plugin-pxtorem -D
 
 ## Configuration
 
-`vite.config.ts`:
+`vite.config.ts`
 
 ```ts
 import { defineConfig } from 'vite'
@@ -37,7 +37,7 @@ export type Options = {
 
 ## Example 1: static style
 
-input:
+**Input**:
 
 ```html
 <template>
@@ -45,7 +45,7 @@ input:
 </template>
 ```
 
-output:
+**Output**:
 
 ```html
 <template>
@@ -55,7 +55,7 @@ output:
 
 ## Example 2: dynamic style
 
-input:
+**Input**:
 
 ```html
 <template>
@@ -63,7 +63,7 @@ input:
 </template>
 ```
 
-output:
+**Output**:
 
 ```html
 <template>
@@ -73,18 +73,18 @@ output:
 
 ## Example 3: dynamic style with `<script setup>`
 
-**Input**
+**Input**:
 
 ```html
 <script lang="ts" setup>
-  import { computed } from 'vue'
+import { computed } from 'vue'
 
-  const styles = computed(() => {
-    return {
-      width: '100px',
-      height: '100px',
-    }
-  })
+const styles = computed(() => {
+  return {
+    width: '100px',
+    height: '100px',
+  }
+})
 </script>
 <template>
   <div :style="styles"></div>
@@ -95,19 +95,19 @@ output:
 
 ```html
 <script lang="ts">
-  import { computed } from 'vue'
+import { computed } from 'vue'
 
-  export default {
-    setup() {
-      const styles = computed(() => {
-        return {
-          width: '100px',
-          height: '100px',
-        }
-      })
-      return { styles }
-    },
-  }
+export default {
+  setup() {
+    const styles = computed(() => {
+      return {
+        width: '100px',
+        height: '100px',
+      }
+    })
+    return { styles }
+  },
+}
 </script>
 <template>
   <div :style="styles"></div>
