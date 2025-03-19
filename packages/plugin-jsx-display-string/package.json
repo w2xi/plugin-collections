@@ -1,0 +1,47 @@
+{
+  "name": "babel-plugin-jsx-display-string",
+  "version": "0.0.1",
+  "description": "A babel plugin used to display jsx expression as string",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "homepage": "https://github.com/w2xi/plugin-collections/tree/main/packages/plugin-jsx-display-string#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/w2xi/plugin-collections.git",
+    "directory": "packages/plugin-jsx-display-string"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./client": {
+      "types": "./client.d.ts"
+    }
+  },
+  "scripts": {
+    "prepublishOnly": "nr build",
+    "dev": "nr build --watch",
+    "build": "tsup src --dts --format cjs,esm"
+  },
+  "keywords": [
+    "babel-plugin",
+    "jsx",
+    "react"
+  ],
+  "author": "w2xi",
+  "license": "MIT",
+  "files": [
+    "dist"
+  ],
+  "peerDependencies": {},
+  "dependencies": {}
+}
