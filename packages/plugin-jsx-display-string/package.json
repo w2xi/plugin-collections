@@ -42,6 +42,14 @@
   "files": [
     "dist"
   ],
-  "peerDependencies": {},
-  "dependencies": {}
+  "peerDependencies": {
+    "@babel/core": "^7.0.0"
+  },
+  "dependencies": {
+    "@babel/core": "^7.23.9",
+    "@types/babel__core": "^7.20.5"
+  },
+  "devDependencies": {
+    "@babel/types": "^7.23.9"
+  }
 }
